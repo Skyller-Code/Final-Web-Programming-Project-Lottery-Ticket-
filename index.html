@@ -9,19 +9,27 @@
     <body>
         <div id = "top"> <!--the top of the page-->
             <h1>Satisfactory Ore Finding (WIP)</h1>
-            <h1>$0</h1> <!--total-->
+            <h1 id = "total">$0</h1> <!--total-->
         </div>
         <div id = "ticket">
             <div id = "images">
                 <div id = "row-1" class = "rows"></div>
                 <div id = "row-2" class = "rows"></div>
             </div>
-            <h3>explanation</h3>
+            <h4 id = "rules">
+                Find a 
+                <br>"<img src="resources/quartz_ore.webp" alt="quartz" class = "model">" (quartz) symbol to win $5.
+                <br>"<img src="resources/bauxite_ore.webp" alt="bauxite" class = "model">" (bauxite) symbol to win $10.
+                <br>"<img src="resources/uranium_ore.webp" alt="uranium" class = "model">" (uranium) symbol to win $15.
+                <br>Anything else will win you nothing.
+            </h4>
+            
         </div>
-        <h1>Ticket Winnings $</h1>
+        <h1 id = "winnings">Ticket Winnings $</h1>
         <div>
-            <h1>New ticket</h1>
+            <h1 onclick = "makeNew()">New ticket</h1>
         </div>
         <script>getImages()</script>
+        <script>setTotal()</script>
     </body>
 </html>
