@@ -16,19 +16,21 @@ function getImages()
             const oreImg = document.createElement("img");
             oreImg.src = `resources/${ore}_ore.webp`;
             oreImg.alt = "Ore Image";
-            oreImg.width = "40";
             oreEle.appendChild(oreImg);
 
-            //cell's name
+            //cell's / image's name
             const name = document.createElement("h3");
             name.textContent = ore;
+            name.style.margin = "0px";
+            name.style.marginTop = "2px";
             oreEle.appendChild(name);
             
             document.getElementById(`row-${rowNum}`).appendChild(oreEle);
         }
     }
 }
-//last left off trying to center the image
+//last left off improving the visuals
+//next: probaly work on the onclick function
 
 //these 2 are a helper functions
 function randint(min, max)
@@ -45,4 +47,6 @@ function choice(array)
 Notes:
 consider weighted changes
 find cool google font
+maybe add more cells
+//see if pages was deleted
 */
