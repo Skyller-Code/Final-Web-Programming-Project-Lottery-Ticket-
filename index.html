@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>WIP</title>
+        <title>Satisfactory Ore Finding</title>
         <link rel = "stylesheet" href = "index.css">
         <script src = "index.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        
     </head>
 
     <body>
-        <div id = "top"> <!--the top of the page-->
-            <h1>Satisfactory Ore Finding (WIP)</h1>
-            <h1 id = "total">$0</h1> <!--total-->
+        <div id = "top">
+            <h1>Satisfactory Ore Finding</h1>
+            <h1 id = "total">$0</h1>
         </div>
         <div id = "ticket">
             <div id = "images">
@@ -17,19 +22,21 @@
                 <div id = "row-2" class = "rows"></div>
             </div>
             <h4 id = "rules">
-                Find a 
+                Find a:
                 <br>"<img src="resources/quartz_ore.webp" alt="quartz" class = "model">" (quartz) symbol to win $5.
                 <br>"<img src="resources/bauxite_ore.webp" alt="bauxite" class = "model">" (bauxite) symbol to win $10.
                 <br>"<img src="resources/uranium_ore.webp" alt="uranium" class = "model">" (uranium) symbol to win $15.
                 <br>Anything else will win you nothing.
             </h4>
-            
+            <h2 id = "cost">$5</h2>
         </div>
-        <h1 id = "winnings">Ticket Winnings $</h1>
-        <div>
-            <h1 onclick = "makeNew()">New ticket</h1>
+        <div id = "bottom">
+            <h1 id = "winnings">Ticket Winnings $0</h1>
+            <script>setTotal()</script>
+            <div>
+                <h1 onclick = "makeNew()" id = "make-new">New ticket</h1>
+            </div>
+            <script>getImages()</script>
         </div>
-        <script>getImages()</script>
-        <script>setTotal()</script>
     </body>
 </html>

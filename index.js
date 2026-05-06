@@ -7,8 +7,8 @@ function getImages()
         for(let cellNum = 0; cellNum < 4; cellNum++)
         {
             //cell
-            //const ore = choice(ores);
-            const ore = ores[cellNum + 4];
+            const ore = choice(ores);
+            //const ore = ores[cellNum + 4];
             const oreEle = document.createElement("div");
             oreEle.className = "cell";
 
@@ -54,24 +54,22 @@ function clicked(name, img)
 
 function makeNew()
 {
-  if(sessionStorage.getItem("total"))
-  {
-    const newTotal = Number(sessionStorage.getItem("total")) + Number(document.getElementById("winnings").textContent.split("$")[1]);
-    sessionStorage.setItem("total", newTotal);
-  }
-  else
-  {
-    sessionStorage.setItem("total", "0");
-  }
+  const newTotal = Number(sessionStorage.getItem("total")) + Number(document.getElementById("winnings").textContent.split("$")[1]);
+  sessionStorage.setItem("total", newTotal);
   window.location.reload();
 }
 
 function setTotal()
 {
-  document.getElementById("total").textContent = `$${sessionStorage.getItem("total")}`;
+  if(sessionStorage.getItem("total"))
+  {
+    document.getElementById("total").textContent = `$${sessionStorage.getItem("total")}`;
+  }
+  else
+  {
+    document.getElementById("total").textContent = "$0";
+  }
 }
-
-//last left off setting the total to save
 
 //these 2 are a helper functions
 function randint(min, max)
@@ -86,9 +84,7 @@ function choice(array)
 
 /*
 Notes:
-consider weighted changes
-find cool google font
-maybe add more cells
+make weighted changes
 find some way to make the cell fade in as it's clicked
-make consistent cell sizes
+ask what Indicate how much the ticket costs to “purchase” means exactly
 */
