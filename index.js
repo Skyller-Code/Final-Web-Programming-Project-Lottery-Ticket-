@@ -21,7 +21,6 @@ function getImages()
             //cell's / image's name
             const name = document.createElement("h3");
             name.textContent = ore;
-            //name.style.
             name.style.margin = "0px";
             name.style.marginTop = "2px";
             oreEle.appendChild(name);
@@ -35,7 +34,9 @@ function getImages()
 function clicked(name, img)
 {
   img.style.opacity = "1";
-  name.style.color = "black";
+  //name.style.color = "black";
+  name.style.color = "rgb(209, 136, 1)";
+  //last left off changing this
 
   const won = document.getElementById("winnings");
   if(name.textContent == "quartz")
@@ -87,4 +88,5 @@ Notes:
 make weighted changes
 find some way to make the cell fade in as it's clicked
 ask what Indicate how much the ticket costs to “purchase” means exactly
+need to make cells unclickable after being revealed
 */

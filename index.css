@@ -20,6 +20,8 @@ body
     border: solid;
     display: flex;
     justify-content: space-around;
+    background-color: rgb(209, 136, 1);
+    color: rgb(34, 34, 34);
 }
 
 h1
@@ -30,11 +32,13 @@ h1
 #ticket
 {
     border: solid;
-    border-radius: 30px;
+    border-radius: 25px;
     display: flex;
     justify-content: space-evenly;
     width: 60vw;
     align-self: center;
+    background-color: rgb(34, 34, 34);
+    color: rgb(209, 136, 1);
 }
 
 #images
@@ -83,7 +87,7 @@ h3
 
 #cost
 {
-    /*last left off making this id*/
+    font-size: 2vw;
 }
 
 #bottom
@@ -91,6 +95,8 @@ h3
     border: solid;
     display: flex;
     justify-content: space-around;
+    background-color: rgb(209, 136, 1);
+    color: rgb(34, 34, 34);
 }
 
 #winnings
@@ -102,12 +108,12 @@ h3
 {
     border-radius: 3vw;
     padding: 1vw;
-    background-color: black;
-    color: rgb(161, 51, 160);
+    background-color: rgb(34, 34, 34);
+    color: rgb(209, 136, 1);
 }
 
 #make-new:hover
 {
-    color: blue;
-    background-color: gold;
+    background-color: slategray;
+    color: rgb(34, 34, 34);
 }
