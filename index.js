@@ -10,7 +10,6 @@ function getImages()
           //const ore = choice(ores);
           //const ore = ores[cellNum + 4];
           const ore = getRandom(ores);
-          console.log(ore);
           const oreEle = document.createElement("div");
           oreEle.className = "cell";
 
@@ -35,8 +34,13 @@ function getImages()
 
 function clicked(name, img, ele)
 {
-  img.style.opacity = "1";
+  //img.style.opacity = "1";
+  img.style.opacity = Number(img.style.opacity) + 0.1;
+
   name.style.color = "rgb(209, 136, 1)";
+  console.log(name.style.opacity);
+  console.log(window.getComputedStyle(name));
+  //last left off trying to mess with the opacity
 
   const won = document.getElementById("winnings");
   if(name.textContent == "quartz")
@@ -52,7 +56,7 @@ function clicked(name, img, ele)
     won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 15}`;
   }
 
-  ele.onclick = "";
+  //ele.onclick = "";
 }
 
 function makeNew()
@@ -74,48 +78,44 @@ function setTotal()
   }
 }
 
-//these 2 are a helper functions
 function randint(min, max)
 {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function choice(array)
+function choice(array) //might not need this
 {
   return array[randint(0, array.length - 1)];
 }
 
-
 function limChoice(array) //stands for limited choice
 {
-  return array[randint(0, 5)]; //both arugments are inclusive
+  return array[randint(0, 4)]; //both arugments are inclusive
 }
-//last left off making this function
 
 function getRandom(array)
 {
-  const num = Math.floor(Math.random() * 100); //returns a random integer from 0 to 99 (both included)
-  console.log(num);
-  if(num < 4)
+  const num = randint(0, 99); //makes a random number from 0 to 99 (both are inclusive)
+  if(num < 5) //5% for uranium
   {
-    return array[7]; //uranium
+    return array[7];
   }
-  else if(num < 9)
+  else if(num < 10) //10% for bauxite
   {
-    return array[6]; //bauxite
+    return array[6];
   }
-  else if(num < 19)
+  else if(num < 20) //20% for quartz
   {
-    return array[5]; //quartz
+    return array[5];
   }
-  else
+  else //80% for everything else
   {
-    return limChoice(array); //everything else
+    return limChoice(array);
   }
 }
 
 /*
-Notes:
-make weighted changes
+Notes / To-do list:
 find some way to make the cell fade in as it's clicked
+maybe make it so the bottom space doesn't change slightly when increased
 */
