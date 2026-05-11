@@ -26,7 +26,8 @@ body
 
 h1
 {
-    font-size: 3vw;
+    margin: 0.5vh;
+    font-size: 3.5vw;
 }
 
 #ticket
@@ -71,7 +72,8 @@ img
 
 h3
 {
-    color: rgb(209, 136, 1, 0);
+    color: rgb(209, 136, 1);
+    opacity: 0;
 }
 
 .model

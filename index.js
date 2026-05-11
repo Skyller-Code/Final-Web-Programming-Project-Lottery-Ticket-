@@ -6,9 +6,7 @@ function getImages()
   {
       for(let cellNum = 0; cellNum < 4; cellNum++)
       {
-          //cell
-          //const ore = choice(ores);
-          //const ore = ores[cellNum + 4];
+          //cell itself
           const ore = getRandom(ores);
           const oreEle = document.createElement("div");
           oreEle.className = "cell";
@@ -16,7 +14,7 @@ function getImages()
           //cell's image
           const oreImg = document.createElement("img");
           oreImg.src = `resources/${ore}_ore.webp`;
-          oreImg.alt = "Ore Image";
+          oreImg.alt = `${ore} Image`;
           oreEle.appendChild(oreImg);
 
           //cell's / image's name
@@ -26,37 +24,35 @@ function getImages()
           name.style.marginTop = "2px";
           oreEle.appendChild(name);
           
-          oreEle.onclick = function() {clicked(name, oreImg, oreEle)};
+          oreEle.onmouseover = function() {select(name, oreImg, oreEle)};
           document.getElementById(`row-${rowNum}`).appendChild(oreEle);
       }
   }
 }
 
-function clicked(name, img, ele)
+function select(name, img, ele)
 {
-  //img.style.opacity = "1";
   img.style.opacity = Number(img.style.opacity) + 0.1;
+  name.style.opacity = window.getComputedStyle(name)["opacity"];
+  name.style.opacity = Number(name.style.opacity) + 0.1;
 
-  name.style.color = "rgb(209, 136, 1)";
-  console.log(name.style.opacity);
-  console.log(window.getComputedStyle(name));
-  //last left off trying to mess with the opacity
-
-  const won = document.getElementById("winnings");
-  if(name.textContent == "quartz")
+  if(Number(name.style.opacity) == 1)
   {
-    won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 5}`;
+    ele.onmouseover = "";
+    const won = document.getElementById("winnings");
+    if(name.textContent == "quartz")
+    {
+      won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 5}`;
+    }
+    else if(name.textContent == "bauxite")
+    {
+      won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 10}`;
+    }
+    else if(name.textContent == "uranium")
+    {
+      won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 15}`;
+    }
   }
-  else if(name.textContent == "bauxite")
-  {
-    won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 10}`;
-  }
-  else if(name.textContent == "uranium")
-  {
-    won.textContent = `Ticket Winnings $${Number(won.textContent.split("$")[1]) + 15}`;
-  }
-
-  //ele.onclick = "";
 }
 
 function makeNew()
@@ -81,11 +77,6 @@ function setTotal()
 function randint(min, max)
 {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function choice(array) //might not need this
-{
-  return array[randint(0, array.length - 1)];
 }
 
 function limChoice(array) //stands for limited choice
@@ -113,9 +104,3 @@ function getRandom(array)
     return limChoice(array);
   }
 }
-
-/*
-Notes / To-do list:
-find some way to make the cell fade in as it's clicked
-maybe make it so the bottom space doesn't change slightly when increased
-*/
